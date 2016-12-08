@@ -275,7 +275,7 @@ public class WebSocketSessionHandler
   		JsonObject data=provider.createObjectBuilder()
 				.add("turn", nextPlayer)
 				.build();
-  		jsonMessage=Utility.mergeProfileSummary(jsonMessage, data);
+  		jsonMessage=AbstractUtility.mergeProfileSummary(jsonMessage, data);
   		System.out.println(jsonMessage.toString());
 		  if(passCount==3)
 		  {
@@ -515,7 +515,7 @@ public class WebSocketSessionHandler
 						.add("gameType", gameStatus)
 						.add("gameWinner",gameWinner)
 						.build();
-		  		jsonMessage=Utility.mergeProfileSummary(jsonMessage, data1);
+		  		jsonMessage=AbstractUtility.mergeProfileSummary(jsonMessage, data1);
 		  		clientData.put(session, jsonMessage);
 	    		sendToSession(session, clientData.get(session));
 	    	}
@@ -542,7 +542,7 @@ public class WebSocketSessionHandler
 				data1=provider1.createObjectBuilder()
 						.add(temp,temp1 )
 						.build();
-				data2=Utility.mergeProfileSummary(data2, data1);
+				data2=AbstractUtility.mergeProfileSummary(data2, data1);
 			}
 			
 				
@@ -571,7 +571,7 @@ public class WebSocketSessionHandler
 						.add("tricksWonN",string)
 						.add("tricksWonS",string3)
 						.build();
-		  		jsonMessage=Utility.mergeProfileSummary(jsonMessage, data1);
+		  		jsonMessage=AbstractUtility.mergeProfileSummary(jsonMessage, data1);
 		  		clientData.put(session, jsonMessage);
 	    		sendToSession(session, clientData.get(session));
 	    	}
@@ -597,7 +597,7 @@ public class WebSocketSessionHandler
 							.add("tricksWonS",string3)
 							.add("trickStarter",trickStarter)
 							.build();
-			  		jsonMessage=Utility.mergeProfileSummary(jsonMessage, data1);
+			  		jsonMessage=AbstractUtility.mergeProfileSummary(jsonMessage, data1);
 			  		clientData.put(session, jsonMessage);
 		    		sendToSession(session, clientData.get(session));
 		    	}
@@ -624,7 +624,7 @@ public class WebSocketSessionHandler
 						.add("tricksWonE","0")
 						.add("suitForTrick","N")
 						.build();
-		  		clientMessage=Utility.mergeProfileSummary(clientMessage, data1);
+		  		clientMessage=AbstractUtility.mergeProfileSummary(clientMessage, data1);
 		  		clientData.put(session, clientMessage);
 	    		sendToSession(session, clientData.get(session));
 	    	}
@@ -638,7 +638,7 @@ public class WebSocketSessionHandler
 						.add("turn", nextPlayer)
 						.add(playerBidName,temp)
 						.build();
-		  		clientMessage=Utility.mergeProfileSummary(clientMessage, data1);
+		  		clientMessage=AbstractUtility.mergeProfileSummary(clientMessage, data1);
 		  		clientData.put(session, clientMessage);
 	    		sendToSession(session, clientData.get(session));
 	    	}
@@ -667,7 +667,7 @@ public class WebSocketSessionHandler
 	    			cardDetails = provider.createObjectBuilder()
 	    					.add(cardname, cardString).build();
 	    			//clientMessage.putAll(cardDetails);
-	    			clientMessage=Utility.mergeProfileSummary(clientMessage, cardDetails);
+	    			clientMessage=AbstractUtility.mergeProfileSummary(clientMessage, cardDetails);
 	    		}
 	    		k=k+13;
 	    		
