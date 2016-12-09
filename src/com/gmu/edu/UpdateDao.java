@@ -3,6 +3,7 @@ package com.gmu.edu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UpdateDao
@@ -14,6 +15,14 @@ public class UpdateDao
 		String sql="select wins from userdetails where email=?";
 		PreparedStatement preparedStatement=con.prepareStatement(sql);
 		preparedStatement.setString(1, email);
+		ResultSet resultSet=preparedStatement.executeQuery();
+		String wins=null;
+		while(resultSet.next())
+		{
+			 
+			 wins=resultSet.getString("password");
+			 //System.out.println(password);
+		}
 		return null;
 	}
 }
