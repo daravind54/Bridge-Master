@@ -1,5 +1,6 @@
 package com.gmu.sockets;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -17,6 +18,7 @@ import javax.websocket.Session;
 
 import com.gmu.bridge.Card;
 import com.gmu.bridge.Deck;
+import com.gmu.edu.UpdateDao;
 import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
 
 
@@ -336,7 +338,7 @@ public class WebSocketSessionHandler
 		  }
 		  
 	 }
-	 public void game(JsonObject jsonMessage, final Session session)
+	 public void game(JsonObject jsonMessage, final Session session) throws ClassNotFoundException, SQLException
 	 {
 		 String nextPlayer=null;
 		 Integer cardValue=null;
@@ -422,6 +424,11 @@ public class WebSocketSessionHandler
 					 {
 						 final String gameStatus="Game Won";
 						 final String gameWinner="South-North";
+						 UpdateDao updatedao=new UpdateDao();
+						 updatedao.updateWin(emails.get("South"));
+						 updatedao.updateWin(emails.get("North"));
+						 updatedao.updateLoss(emails.get("East"));
+						 updatedao.updateLoss(emails.get("West"));
 						 sendGameWinnerToAllConnectedSessions(jsonMessage, nextPlayer, tempCard, suit, Integer.toString(tricksWonbyNorth),Integer.toString(tricksWonbyWest),Integer.toString(tricksWonbySouth),Integer.toString(tricksWonbyEast),trickStarter,gameStatus,gameWinner);
 					 }
 				 }
@@ -431,6 +438,11 @@ public class WebSocketSessionHandler
 					 {
 						 final String gameStatus="Game Won";
 						 final String gameWinner="South-North";
+						 UpdateDao updatedao=new UpdateDao();
+						 updatedao.updateWin(emails.get("South"));
+						 updatedao.updateWin(emails.get("North"));
+						 updatedao.updateLoss(emails.get("East"));
+						 updatedao.updateLoss(emails.get("West"));
 						 sendGameWinnerToAllConnectedSessions(jsonMessage, nextPlayer, tempCard, suit, Integer.toString(tricksWonbyNorth),Integer.toString(tricksWonbyWest),Integer.toString(tricksWonbySouth),Integer.toString(tricksWonbyEast),trickStarter,gameStatus,gameWinner);
 					 
 					 }
@@ -447,6 +459,11 @@ public class WebSocketSessionHandler
 					 {
 						 final String gameStatus="Game Won";
 						 final String gameWinner="South-North";
+						 UpdateDao updatedao=new UpdateDao();
+						 updatedao.updateWin(emails.get("South"));
+						 updatedao.updateWin(emails.get("North"));
+						 updatedao.updateLoss(emails.get("East"));
+						 updatedao.updateLoss(emails.get("West"));
 						 sendGameWinnerToAllConnectedSessions(jsonMessage, nextPlayer, tempCard, suit, Integer.toString(tricksWonbyNorth),Integer.toString(tricksWonbyWest),Integer.toString(tricksWonbySouth),Integer.toString(tricksWonbyEast),trickStarter,gameStatus,gameWinner);
 					 }
 				 }
@@ -456,6 +473,11 @@ public class WebSocketSessionHandler
 					 {
 						 final String gameStatus="Game Won";
 						 final String gameWinner="South-North";
+						 UpdateDao updatedao=new UpdateDao();
+						 updatedao.updateWin(emails.get("South"));
+						 updatedao.updateWin(emails.get("North"));
+						 updatedao.updateLoss(emails.get("East"));
+						 updatedao.updateLoss(emails.get("West"));
 						 sendGameWinnerToAllConnectedSessions(jsonMessage, nextPlayer, tempCard, suit, Integer.toString(tricksWonbyNorth),Integer.toString(tricksWonbyWest),Integer.toString(tricksWonbySouth),Integer.toString(tricksWonbyEast),trickStarter,gameStatus,gameWinner);
 					 
 					 }
@@ -471,6 +493,11 @@ public class WebSocketSessionHandler
 					 {
 						 final String gameStatus="Game Won";
 						 final String gameWinner="East-West";
+						 UpdateDao updatedao=new UpdateDao();
+						 updatedao.updateWin(emails.get("East"));
+						 updatedao.updateWin(emails.get("West"));
+						 updatedao.updateLoss(emails.get("South"));
+						 updatedao.updateLoss(emails.get("North"));
 						 sendGameWinnerToAllConnectedSessions(jsonMessage, nextPlayer, tempCard, suit, Integer.toString(tricksWonbyNorth),Integer.toString(tricksWonbyWest),Integer.toString(tricksWonbySouth),Integer.toString(tricksWonbyEast),trickStarter,gameStatus,gameWinner);
 					 }
 				 }
@@ -480,6 +507,11 @@ public class WebSocketSessionHandler
 					 {
 						 final String gameStatus="Game Won";
 						 final String gameWinner="East-West";
+						 UpdateDao updatedao=new UpdateDao();
+						 updatedao.updateWin(emails.get("East"));
+						 updatedao.updateWin(emails.get("West"));
+						 updatedao.updateLoss(emails.get("South"));
+						 updatedao.updateLoss(emails.get("North"));
 						 sendGameWinnerToAllConnectedSessions(jsonMessage, nextPlayer, tempCard, suit, Integer.toString(tricksWonbyNorth),Integer.toString(tricksWonbyWest),Integer.toString(tricksWonbySouth),Integer.toString(tricksWonbyEast),trickStarter,gameStatus,gameWinner);
 					 
 					 }
@@ -495,6 +527,11 @@ public class WebSocketSessionHandler
 					 {
 						 final String gameStatus="Game Won";
 						 final String gameWinner="East-West";
+						 UpdateDao updatedao=new UpdateDao();
+						 updatedao.updateWin(emails.get("East"));
+						 updatedao.updateWin(emails.get("West"));
+						 updatedao.updateLoss(emails.get("South"));
+						 updatedao.updateLoss(emails.get("North"));
 						 sendGameWinnerToAllConnectedSessions(jsonMessage, nextPlayer, tempCard, suit, Integer.toString(tricksWonbyNorth),Integer.toString(tricksWonbyWest),Integer.toString(tricksWonbySouth),Integer.toString(tricksWonbyEast),trickStarter,gameStatus,gameWinner);
 					 }
 				 }
@@ -504,6 +541,11 @@ public class WebSocketSessionHandler
 					 {
 						 final String gameStatus="Game Won";
 						 final String gameWinner="East-West";
+						 UpdateDao updatedao=new UpdateDao();
+						 updatedao.updateWin(emails.get("East"));
+						 updatedao.updateWin(emails.get("West"));
+						 updatedao.updateLoss(emails.get("South"));
+						 updatedao.updateLoss(emails.get("North"));
 						 sendGameWinnerToAllConnectedSessions(jsonMessage, nextPlayer, tempCard, suit, Integer.toString(tricksWonbyNorth),Integer.toString(tricksWonbyWest),Integer.toString(tricksWonbySouth),Integer.toString(tricksWonbyEast),trickStarter,gameStatus,gameWinner);
 					 
 					 }
