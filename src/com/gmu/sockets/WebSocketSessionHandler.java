@@ -40,6 +40,7 @@ public class WebSocketSessionHandler
 	private final Map<String, Integer> cardRank=new HashMap<String, Integer>();
 	private final Map<String, String> actualCard=new HashMap<String, String>();
 	private static Map<String, Integer> suitToInt = new HashMap<String, Integer>();
+	private final Map<String, String> emails=new HashMap<String,String>();
 	private static Map<Session, JsonObject> clientData=new HashMap<Session, JsonObject>();
 	static {
 		suitToInt.put("S", 0);
@@ -147,6 +148,7 @@ public class WebSocketSessionHandler
 		 	{
 		 		playerName="East";
 		 	}
+		 	
 	        System.out.println(count);//NOPMD
 	        final JsonProvider provider = JsonProvider.provider();
 	         final JsonObject playerSessionName = provider.createObjectBuilder()

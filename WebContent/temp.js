@@ -6,7 +6,8 @@ var sbid=null;
 var nbid=null;
 var ebid=null;
 var wbid=null;
-document.location.href="/BridgeCardGame/updateWin";
+
+
 function onMessage(event) {
 	
 	//alert("On message");
@@ -103,10 +104,28 @@ function onMessage(event) {
 		var display="Game Complete."+"\n"+"Game Won by "+player.gameWinner+" Team"+"\n";
 		
 		alert(display);
+		document.getElementById("logout").style.display = "none";
+		init();
 		if(player.gameWinner.includes(player.playerName))
+		{
+			document.getElementById("updateWin").style.display = "";
+			document.getElementById("logout").style.display = "none";
+			document.getElementById("form1").style.display = "none";
+		}
+		else
+		{
+			/*document.location.href="/BridgeCardGame/updateLoss";*/
+			document.getElementById("updateLoss").style.display = "";
+			document.getElementById("logout").style.display = "none";
+			document.getElementById("form1").style.display = "none";
+		}
+		/*document.getElementById("updateWin").style.display = "";
+		document.getElementById("logout").style.display = "none";
+		document.getElementById("form1").style.display = "none";*/
+		/*if(player.gameWinner.includes(player.playerName))
 			document.location.href="/BridgeCardGame/updateWin";
 		else
-			document.location.href="/BridgeCardGame/updateLoss";
+			document.location.href="/BridgeCardGame/updateLoss";*/
 	}
 	if(player.gameType=="Bid Complete")
 	{
@@ -535,8 +554,10 @@ function onMessage(event) {
 function formSubmit() {
 	hideForm();
 	document.getElementById("waiting").style.display = "";
+	var email=document.getElementById("email").value;
 	var DeviceAction = {
-	        action: "initialization"
+	        action: "initialization",
+	        	email:email
 	        };
 	socket.send(JSON.stringify(DeviceAction));
 }
@@ -847,6 +868,7 @@ function formSubmitCardS()
 function hideForm() {
     document.getElementById("form1").style.display = "none";
     document.getElementById("welcome").style.display = "none";
+    /*document.getElementById("updateWin").style.display = "none";*/
 }
 function init() {
     hideDiv();
@@ -882,4 +904,6 @@ function hideDiv() {
     document.getElementById("tricksWonELabel").style.display = "none";
     document.getElementById("tricksWonWLabel").style.display = "none";
     document.getElementById("gameRules").style.display = "none";
+    document.getElementById("emailform").style.display = "none";
+    
 }
