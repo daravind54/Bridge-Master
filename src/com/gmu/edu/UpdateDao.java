@@ -43,7 +43,7 @@ public class UpdateDao
 		while(resultSet.next())
 		{
 			 
-			 loss=resultSet.getInt("wins");
+			 loss=resultSet.getInt("loss");
 			 //System.out.println(password);
 		}
 		loss++;
