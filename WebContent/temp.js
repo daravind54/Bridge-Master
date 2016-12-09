@@ -6,6 +6,7 @@ var sbid=null;
 var nbid=null;
 var ebid=null;
 var wbid=null;
+
 function onMessage(event) {
 	
 	//alert("On message");
@@ -100,6 +101,7 @@ function onMessage(event) {
 	if(player.gameType=="Game Won")
 	{
 		var display="Game Complete."+"\n"+"Game Won by "+player.gameWinner+" Team"+"\n";
+		document.location.href="/BridgeCardGame/update";
 		alert(display);
 	}
 	if(player.gameType=="Bid Complete")
