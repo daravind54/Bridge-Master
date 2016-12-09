@@ -43,13 +43,13 @@ public class UpdateDao
 		while(resultSet.next())
 		{
 			 
-			 wins=resultSet.getInt("wins");
+			 loss=resultSet.getInt("wins");
 			 //System.out.println(password);
 		}
-		wins++;
-		sql="update userdetails set wins=? where email=?";
+		loss++;
+		sql="update userdetails set loss=? where email=?";
 		preparedStatement=con.prepareStatement(sql);
-		preparedStatement.setInt(1, wins);
+		preparedStatement.setInt(1, loss);
 		preparedStatement.setString(2, email);
 		preparedStatement .executeUpdate();
 		
