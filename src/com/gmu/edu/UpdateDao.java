@@ -23,6 +23,7 @@ public class UpdateDao
 			 wins=resultSet.getInt("wins");
 			 //System.out.println(password);
 		}
+		wins++;
 		sql="update userdetails set wins=? where email=?";
 		preparedStatement=con.prepareStatement(sql);
 		preparedStatement.setString(1, email);
