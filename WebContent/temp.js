@@ -104,21 +104,11 @@ function onMessage(event) {
 		var display="Game Complete."+"\n"+"Game Won by "+player.gameWinner+" Team"+"\n";
 		
 		alert(display);
-		document.getElementById("logout").style.display = "none";
-		init();
-		if(player.gameWinner.includes(player.playerName))
-		{
-			document.getElementById("updateWin").style.display = "";
-			document.getElementById("logout").style.display = "none";
-			document.getElementById("form1").style.display = "none";
-		}
-		else
-		{
-			/*document.location.href="/BridgeCardGame/updateLoss";*/
-			document.getElementById("updateLoss").style.display = "";
-			document.getElementById("logout").style.display = "none";
-			document.getElementById("form1").style.display = "none";
-		}
+		
+		document.getElementById("cards").style.display = "none";
+		document.getElementById("gameRules").style.display = "none";
+		document.getElementById("form1").style.display = "";
+		hideDiv();
 		/*document.getElementById("updateWin").style.display = "";
 		document.getElementById("logout").style.display = "none";
 		document.getElementById("form1").style.display = "none";*/
@@ -868,7 +858,7 @@ function formSubmitCardS()
 function hideForm() {
     document.getElementById("form1").style.display = "none";
     document.getElementById("welcome").style.display = "none";
-    /*document.getElementById("updateWin").style.display = "none";*/
+    
 }
 function init() {
     hideDiv();
@@ -904,6 +894,6 @@ function hideDiv() {
     document.getElementById("tricksWonELabel").style.display = "none";
     document.getElementById("tricksWonWLabel").style.display = "none";
     document.getElementById("gameRules").style.display = "none";
-    document.getElementById("emailform").style.display = "none";
+    
     
 }

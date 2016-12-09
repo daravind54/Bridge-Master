@@ -12,9 +12,7 @@
 <div id="welcome">
 	<h1>Login successful</h1>
 </div>
-<form id="emailform">
-	<input type="text" id="email" name="email" value="<%= session.getAttribute("username") %>">
-</form>
+
 <div id="username">
 	<h3>Welcome, <%= session.getAttribute("username") %></h3>
 	
@@ -22,12 +20,7 @@
 	<input type="submit" name="logout" id="logout" value="Logout">
 	</form>
 </div>
-<form id="updateWin" action="updateWin" method="post">
-		<input type="submit" name="Home" id="Home" value="Home">
-</form>
-<form id="updateLoss" action="updateLoss" method="post">
-		<input type="submit" name="Home" id="Home" value="Home">
-</form>
+
 <form id="form1">
 <input type="button"  value="Join Game" onclick=formSubmit()>
 <a href="">View Stats</a><br>

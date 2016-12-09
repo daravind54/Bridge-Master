@@ -1,5 +1,6 @@
 package com.gmu.sockets;
 import java.io.StringReader;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,7 +42,7 @@ public class WebSocketServer {
 		 Logger.getLogger(WebSocketServer.class.getName()).log(Level.SEVERE, null, error);
 	 }
 	 @OnMessage
-     public void handleMessage(String message, Session session) {
+     public void handleMessage(String message, Session session) throws ClassNotFoundException, SQLException {
 		 try (JsonReader reader = Json.createReader(new StringReader(message))) {
 		         JsonObject jsonMessage = reader.readObject();
 			 System.out.println(jsonMessage);
