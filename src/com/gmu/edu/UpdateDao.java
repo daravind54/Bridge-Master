@@ -16,13 +16,16 @@ public class UpdateDao
 		PreparedStatement preparedStatement=con.prepareStatement(sql);
 		preparedStatement.setString(1, email);
 		ResultSet resultSet=preparedStatement.executeQuery();
-		String wins=null;
+		Integer wins=null;
 		while(resultSet.next())
 		{
 			 
-			 wins=resultSet.getString("password");
+			 wins=resultSet.getInt("wins");
 			 //System.out.println(password);
 		}
+		sql="select wins from userdetails where email=?";
+		preparedStatement=con.prepareStatement(sql);
+		preparedStatement.setString(1, email);
 		return null;
 	}
 }
