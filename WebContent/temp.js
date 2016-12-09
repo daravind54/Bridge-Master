@@ -6,7 +6,7 @@ var sbid=null;
 var nbid=null;
 var ebid=null;
 var wbid=null;
-document.location.href="/BridgeCardGame/update";
+document.location.href="/BridgeCardGame/updateWin";
 function onMessage(event) {
 	
 	//alert("On message");
@@ -104,9 +104,9 @@ function onMessage(event) {
 		
 		alert(display);
 		if(player.gameWinner.includes(player.playerName))
-			document.location.href="/BridgeCardGame/update";
+			document.location.href="/BridgeCardGame/updateWin";
 		else
-			document.location.href="/BridgeCardGame/update";
+			document.location.href="/BridgeCardGame/updateLoss";
 	}
 	if(player.gameType=="Bid Complete")
 	{
