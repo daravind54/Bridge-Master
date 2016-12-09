@@ -6,7 +6,7 @@ import javax.json.JsonObjectBuilder;
 
 public abstract class AbstractUtility 
 {
-	public static JsonObject mergeProfileSummary(JsonObject oldJsonObject, JsonObject newJsonObject) {
+	public static JsonObject mergeProfileSummary(final JsonObject oldJsonObject, final JsonObject newJsonObject) {
         final JsonObjectBuilder jsonObjectBuilder =Json.createObjectBuilder();
  
         for (final String key : oldJsonObject.keySet()){

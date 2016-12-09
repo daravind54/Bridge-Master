@@ -12,8 +12,13 @@
 	<h1>Login successful</h1>
 </div>
 <div id="username">
-	<h3>Welcome, <%= session.getAttribute("username") %></h3>
+	<h3>Welcome, <%= session.getAttribute("username") %></h3><div id="logout">
+	<form action="logout" method="post">
+	<input type="submit" name="logout" id="logout" value="Logout">
+	</form>
 </div>
+</div>
+
 <form id="form1">
 
 
@@ -135,6 +140,36 @@
 			<td></td>
 		</tr>
 	</table>
+</div>
+<div id="gameRules">
+<h3>Game Rules</h3>
+<ul>
+	<li>Bidding rules</li>
+	<ol>
+		<li>After looking at the cards in your hand. Make a call, call can be either a bid or a pass.</li>
+		<li>Bid should be of the format a number from one to seven followed by a suit. The number is the tricks in addition to six that the bidder agrees to win. The suit is the suit that will be trumps or notrump if the bidder wishes to play without a trump suit.</li>
+		<li>Example of a Bid is "1 H", which means that the bidder is agreeing to win a total of 7 (6+1) tricks and the game will be played with Hearts as trump suit.</li>
+		<li>Each successive  bid should be higher numbered than the preceding bid or can be a equal numbered from a higher ranked suit. 
+			In Bidding phase, the suits are ranked as follows:
+			<ol>
+				<li>notrump </li>
+				<li>spades</li>
+				<li>Hearts</li>
+				<li>Diamonds</li>
+				<li>Clubs</li>
+			</ol> 
+		</li>
+		<li>For example: if the opening bid is one spade, the next bid by any player may be one notrump or two or more in any suit or notrump.</li>
+		<li>Bidding ends when 3 players consecutively pass.</li>
+	</ol>
+	<li>Play Rules</li>
+	<ol>
+		<li>Play consists of entering/placing a card in your hand.</li>
+		<li>First card played is the lead card and remaining players should follow the suit of lead.</li>
+		<li>Card input should be of the following format, suit followed by number. For example "S 5" means 5 of spades.</li>
+		<li>Once all the players have played their card, the trick is complete and the player card with the highest rank wins the trick.</li>
+	</ol>
+</ul>
 </div>
 </body>
 </html>

@@ -13,6 +13,7 @@ function onMessage(event) {
 	
 	document.getElementById("waiting").style.display = "none";
 	document.getElementById("cards").style.display = "";
+	document.getElementById("gameRules").style.display = "";
 	var player = JSON.parse(event.data);
 	//alert(sbid);
 	/*if(player.gameType=="Game Phase")
@@ -845,6 +846,7 @@ function init() {
     hideDiv();
 }
 function hideDiv() {
+	document.getElementById("gameRules").style.display = "none";
     document.getElementById("cards").style.display = "none";
     document.getElementById("waiting").style.display = "none";
     document.getElementById("SSubmitBid").style.display = "none";
@@ -873,4 +875,5 @@ function hideDiv() {
     document.getElementById("tricksWonSLabel").style.display = "none";
     document.getElementById("tricksWonELabel").style.display = "none";
     document.getElementById("tricksWonWLabel").style.display = "none";
+    document.getElementById("gameRules").style.display = "none";
 }

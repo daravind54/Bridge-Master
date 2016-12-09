@@ -17,6 +17,7 @@ import javax.websocket.server.ServerEndpoint;
 
 
 @ApplicationScoped
+@SuppressWarnings("PMD")
 @ServerEndpoint("/actions")
 public class WebSocketServer {
 
@@ -45,11 +46,17 @@ public class WebSocketServer {
 		         JsonObject jsonMessage = reader.readObject();
 			 System.out.println(jsonMessage);
 			 if(jsonMessage.getString("action").equals("initialization"))
+			 {
 				 sessionHandler.addUserToGame(jsonMessage,session);
+			 }
 			 if(jsonMessage.getString("action").equals("bidding"))
+			 {
 				 sessionHandler.bid(jsonMessage, session);
+			 }
 			 if(jsonMessage.getString("action").equals("game"))
+			 {
 				 sessionHandler.game(jsonMessage, session);
+			 }
 		 }
 	 }
 }
