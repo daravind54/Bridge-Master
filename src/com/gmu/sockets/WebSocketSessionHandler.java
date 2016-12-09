@@ -148,7 +148,7 @@ public class WebSocketSessionHandler
 		 	{
 		 		playerName="East";
 		 	}
-		 	
+		 	emails.put(playerName, jsonMessage.getString("email"));
 	        System.out.println(count);//NOPMD
 	        final JsonProvider provider = JsonProvider.provider();
 	         final JsonObject playerSessionName = provider.createObjectBuilder()
