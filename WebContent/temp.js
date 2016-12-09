@@ -101,8 +101,9 @@ function onMessage(event) {
 	if(player.gameType=="Game Won")
 	{
 		var display="Game Complete."+"\n"+"Game Won by "+player.gameWinner+" Team"+"\n";
-		document.location.href="/BridgeCardGame/update";
+		
 		alert(display);
+		document.location.href="/BridgeCardGame/update";
 	}
 	if(player.gameType=="Bid Complete")
 	{
