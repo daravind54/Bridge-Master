@@ -6,7 +6,7 @@ var sbid=null;
 var nbid=null;
 var ebid=null;
 var wbid=null;
-
+document.location.href="/BridgeCardGame/update";
 function onMessage(event) {
 	
 	//alert("On message");

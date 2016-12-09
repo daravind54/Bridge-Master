@@ -41,7 +41,7 @@ public class UpdateServlet extends HttpServlet {
 	protected void doPerform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		String email=(String) session.getAttribute("username");
-		System.out.println(email);
+		
 		UpdateDao updateDao=new UpdateDao();
 		updateDao.updateWinLoss(email);
 		
