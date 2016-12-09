@@ -26,7 +26,8 @@ public class UpdateDao
 		wins++;
 		sql="update userdetails set wins=? where email=?";
 		preparedStatement=con.prepareStatement(sql);
-		preparedStatement.setString(1, email);
+		preparedStatement.setInt(1, wins);
+		preparedStatement.setString(1, wins);
 		return null;
 	}
 }
