@@ -39,7 +39,7 @@ public class UpdateDao
 		PreparedStatement preparedStatement=con.prepareStatement(sql);
 		preparedStatement.setString(1, email);
 		ResultSet resultSet=preparedStatement.executeQuery();
-		Integer wins=null;
+		Integer loss=null;
 		while(resultSet.next())
 		{
 			 
