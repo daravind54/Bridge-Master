@@ -12,11 +12,11 @@
 	<h1>Login successful</h1>
 </div>
 <div id="username">
-	<h3>Welcome, <%= session.getAttribute("username") %></h3><div id="logout">
+	<h3>Welcome, <%= session.getAttribute("username") %></h3>
 	<form action="logout" method="post">
 	<input type="submit" name="logout" id="logout" value="Logout">
 	</form>
-</div>
+
 </div>
 
 <form id="form1">

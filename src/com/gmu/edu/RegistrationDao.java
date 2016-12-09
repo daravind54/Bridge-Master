@@ -17,6 +17,8 @@ public class RegistrationDao
 		preparedStatement.setString(2, registration.getCity());
 		preparedStatement.setString(3, registration.getEmail());
 		preparedStatement.setString(4, registration.getPassword());
+		preparedStatement.setInt(5, 0);
+		preparedStatement.setInt(6, 0);
 		preparedStatement.executeUpdate();
 		System.out.println("Record is inserted into Database");
 	}
