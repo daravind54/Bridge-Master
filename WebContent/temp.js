@@ -103,7 +103,10 @@ function onMessage(event) {
 		var display="Game Complete."+"\n"+"Game Won by "+player.gameWinner+" Team"+"\n";
 		
 		alert(display);
-		document.location.href="/BridgeCardGame/update";
+		if(player.gameWinner.includes(player.playerName))
+			document.location.href="/BridgeCardGame/update";
+		else
+			document.location.href="/BridgeCardGame/update";
 	}
 	if(player.gameType=="Bid Complete")
 	{
