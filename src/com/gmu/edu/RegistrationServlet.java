@@ -59,7 +59,7 @@ public class RegistrationServlet extends HttpServlet {
 		{
 			errors.put("name", "name not valid");
 			request.setAttribute("errors", errors);
-	        request.getRequestDispatcher("registration.jsp").forward(request, response);
+	        request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
 		registration.setCity(request.getParameter("city"));
 		registration.setEmail(request.getParameter("email"));
