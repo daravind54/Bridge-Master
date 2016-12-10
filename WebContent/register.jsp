@@ -17,13 +17,16 @@
 </tr>
 <tr><td>City:</td>
 	<td><input type="text" id="city" name="city"></td>
+	<td><span class="error">${errors.city}</span></td>
 </tr>
 <tr><td>Email:</td>
 	<td><input type="text" id="email" name="email"></td>
+	<td><span class="error">${errors.email}</span></td>
 </tr>
 <tr>
 <td>Password:</td>
 <td><input type="password" id="password" name="password"></td>
+<td><span class="error">${errors.password}</span></td>
 </tr>
 <tr>
 
@@ -31,5 +34,12 @@
 </tr>
 </table>
 </form>
+<div id="rules">
+<h4>Form Rules:</h4>
+<ol>
+	<li>Email id: Should be of the form abc@abc.com</li>
+	<li>Password:Minimum 8 characters with at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character</li>
+</ol>
+</div>
 </body>
 </html>
