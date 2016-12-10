@@ -15,5 +15,9 @@ public class ViewStatsDao
 		String sql="select name,email,wins,loss from userdetails";
 		Statement statement=con.createStatement();
 		ResultSet resultset=statement.executeQuery(sql);
+		while(resultset.next())
+		{
+			
+		}
 	}
 }
