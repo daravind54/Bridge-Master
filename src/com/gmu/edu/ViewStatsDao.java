@@ -20,7 +20,8 @@ public class ViewStatsDao
 		List<StatDetails> details=new ArrayList<StatDetails>();
 		while(resultset.next())
 		{
-			
+			StatDetails s=new StatDetails();
+			s.setName(name);
 		}
 	}
 }
