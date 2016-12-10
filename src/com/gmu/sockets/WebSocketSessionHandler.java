@@ -326,7 +326,7 @@ public class WebSocketSessionHandler
 			  }
 			  winnerBid=actualbid.get(winner);
 			  final String[] temp1=winnerBid.split(" ");
-			  tricksToWin=1 + Integer.parseInt(temp1[0]);
+			  tricksToWin=6 + Integer.parseInt(temp1[0]);
 			  trump=temp1[1];
 		  	  sendWinnerDetailsToAllConnectedSessions(jsonMessage, winner, Integer.toString(tricksToWin), trump, nextPlayer, dummy);
 		  }

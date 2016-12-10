@@ -12,7 +12,9 @@
 <div id="welcome">
 	<h1>Login successful</h1>
 </div>
-
+<form id="emailform">
+	<input type="text" id="email" name="email" value="<%= session.getAttribute("username") %>">
+</form>
 <div id="username">
 	<h3>Welcome, <%= session.getAttribute("username") %></h3>
 	

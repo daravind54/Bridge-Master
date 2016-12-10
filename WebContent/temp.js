@@ -109,6 +109,7 @@ function onMessage(event) {
 		document.getElementById("gameRules").style.display = "none";
 		document.getElementById("form1").style.display = "";
 		hideDiv();
+		location.reload();
 		/*document.getElementById("updateWin").style.display = "";
 		document.getElementById("logout").style.display = "none";
 		document.getElementById("form1").style.display = "none";*/
@@ -117,148 +118,55 @@ function onMessage(event) {
 		else
 			document.location.href="/BridgeCardGame/updateLoss";*/
 	}
-	if(player.gameType=="Bid Complete")
+	else
 	{
-		var trump=null;
-		if(player.trump=="C")
-			trump="Clubs";
-		if(player.trump=="S")
-			trump="Spades";
-		if(player.trump=="H")
-			trump="Hearts";
-		if(player.trump=="D")
-			trump="Diamonds";
-		var display="Bidding Complete,"+"\n"+" Bid won by "+player.bidWinner+"\n"
-		+player.dummyPlayer+" is the dummy player"+"\n"
-		+"The trump suit is "+trump+"\n"
-		+"Tricks to win are "+player.tricksToWin+"\n";
-		alert(display);
-		player.gameType="Game Phase";
-	}
-	if(player.gameType=="Game Phase")
-	{
-		document.getElementById("tricksWonN").style.display = "";
-		document.getElementById("tricksWonN").value=player.tricksWonN;
-		document.getElementById("tricksWonNLabel").style.display = "";
+		/*alert("else");*/
+		if(player.gameType=="Bid Complete")
+		{
+			var trump=null;
+			if(player.trump=="C")
+				trump="Clubs";
+			if(player.trump=="S")
+				trump="Spades";
+			if(player.trump=="H")
+				trump="Hearts";
+			if(player.trump=="D")
+				trump="Diamonds";
+			var display="Bidding Complete,"+"\n"+" Bid won by "+player.bidWinner+"\n"
+			+player.dummyPlayer+" is the dummy player"+"\n"
+			+"The trump suit is "+trump+"\n"
+			+"Tricks to win are "+player.tricksToWin+"\n";
+			alert(display);
+			player.gameType="Game Phase";
+		}
+		if(player.gameType=="Game Phase")
+		{
+			document.getElementById("tricksWonN").style.display = "";
+			document.getElementById("tricksWonN").value=player.tricksWonN;
+			document.getElementById("tricksWonNLabel").style.display = "";
+			
+		    document.getElementById("tricksWonS").style.display = "";
+			document.getElementById("tricksWonS").value=player.tricksWonS;
+			document.getElementById("tricksWonSLabel").style.display = "";
+			
+		    document.getElementById("tricksWonE").style.display = "";
+			document.getElementById("tricksWonE").value=player.tricksWonE;
+			document.getElementById("tricksWonELabel").style.display = "";
+			
+		    document.getElementById("tricksWonW").style.display = "";
+			document.getElementById("tricksWonW").value=player.tricksWonW;
+			document.getElementById("tricksWonWLabel").style.display = "";
+		    
+		}
+		document.getElementById("gameType").value = player.gameType;
+		document.getElementById("turn").value = player.turn;
 		
-	    document.getElementById("tricksWonS").style.display = "";
-		document.getElementById("tricksWonS").value=player.tricksWonS;
-		document.getElementById("tricksWonSLabel").style.display = "";
 		
-	    document.getElementById("tricksWonE").style.display = "";
-		document.getElementById("tricksWonE").value=player.tricksWonE;
-		document.getElementById("tricksWonELabel").style.display = "";
 		
-	    document.getElementById("tricksWonW").style.display = "";
-		document.getElementById("tricksWonW").value=player.tricksWonW;
-		document.getElementById("tricksWonWLabel").style.display = "";
-	    
-	}
-	document.getElementById("gameType").value = player.gameType;
-	document.getElementById("turn").value = player.turn;
-	
-	
-	
-    if (player.playerName == "South") {
-    	
-        //alert("South Player");
-        southData=player;
-        document.getElementById("playerName").value = player.playerName;
-        if(player.hasOwnProperty("SouthBidOrCard"))
-        {
-        	document.getElementById("playedValueS").style.display = "";
-            document.getElementById("playedValueS").value =player.SouthBidOrCard;
-        }
-        if(player.hasOwnProperty("WestBidOrCard"))
-        {
-        	document.getElementById("playedValueW").style.display = "";
-            document.getElementById("playedValueW").value =player.WestBidOrCard;
-        }
-        if(player.hasOwnProperty("EastBidOrCard"))
-        {
-        	document.getElementById("playedValueE").style.display = "";
-            document.getElementById("playedValueE").value =player.EastBidOrCard;
-        }
-        if(player.hasOwnProperty("NorthBidOrCard"))
-        {
-        	document.getElementById("playedValueN").style.display = "";
-            document.getElementById("playedValueN").value =player.NorthBidOrCard;
-        }
-        
-        var temp="card";
-        var clubs=" ";
-		var diamonds=" ";
-		var hearts=" ";
-		var spades=" ";
-        for(var i=1;i<=13;i++)
-        {
-        	
-        	var card=temp+i;
-        	if(player.hasOwnProperty(card))
-        	{
-        		var cardData=player[card];
-        		//alert(cardData);
-        		var cardDataArray=cardData.split("-");
-        		//alert(cardDataArray[0]);
-        		if(cardDataArray[0]=="C")
-        		{
-        			clubs+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="D")
-        		{
-        			diamonds+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="H")
-        		{
-        			hearts+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="S")
-        		{
-        			spades+=cardDataArray[1]+" ";
-        		}
-        	}
-        	
-        	
-        }
-        
-        document.getElementById("Sclubs").value=clubs;
-        document.getElementById("Sdiamonds").value=diamonds;
-        document.getElementById("Shearts").value=hearts;
-        document.getElementById("Sspades").value=spades;
-        if(player.turn=="South's")
-        	document.getElementById("Sinput").style.display = "";
-        else
-        	document.getElementById("Sinput").style.display = "none";
-        if(player.gameType=="Bidding Phase" && player.turn=="South's")
-    	{
-        	
-    		document.getElementById("SSubmitCard").style.display = "none";
-    		document.getElementById("SSubmitBid").style.display = "";
-    		
-    		
-    	}
-        else
-        {
-        	
-    		document.getElementById("SSubmitBid").style.display = "none";
-        }
-        
-    	if(player.gameType=="Game Phase" && player.turn=="South's")
-    	{
-    		
-    		document.getElementById("SSubmitBid").style.display = "none";
-    		document.getElementById("SSubmitCard").style.display = "";
-    	}
-    	else
-    	{
-    		
-    		document.getElementById("SSubmitCard").style.display = "none";
-    	}
-    }
-	if (player.playerName == "West") {
+	    if (player.playerName == "South") {
 	    	
-	        //alert("West Player");
-			westData=player;
+	        //alert("South Player");
+	        southData=player;
 	        document.getElementById("playerName").value = player.playerName;
 	        if(player.hasOwnProperty("SouthBidOrCard"))
 	        {
@@ -280,6 +188,7 @@ function onMessage(event) {
 	        	document.getElementById("playedValueN").style.display = "";
 	            document.getElementById("playedValueN").value =player.NorthBidOrCard;
 	        }
+	        
 	        var temp="card";
 	        var clubs=" ";
 			var diamonds=" ";
@@ -316,227 +225,323 @@ function onMessage(event) {
 	        	
 	        }
 	        
-	        document.getElementById("Wclubs").value=clubs;
-	        document.getElementById("Wdiamonds").value=diamonds;
-	        document.getElementById("Whearts").value=hearts;
-	        document.getElementById("Wspades").value=spades;
-	        if(player.turn=="West's")
-	        	document.getElementById("Winput").style.display = "";
+	        document.getElementById("Sclubs").value=clubs;
+	        document.getElementById("Sdiamonds").value=diamonds;
+	        document.getElementById("Shearts").value=hearts;
+	        document.getElementById("Sspades").value=spades;
+	        if(player.turn=="South's")
+	        	document.getElementById("Sinput").style.display = "";
 	        else
-	        	document.getElementById("Winput").style.display = "none";
-	        if(player.gameType=="Bidding Phase"&& player.turn=="West's")
+	        	document.getElementById("Sinput").style.display = "none";
+	        if(player.gameType=="Bidding Phase" && player.turn=="South's")
 	    	{
 	        	
-	    		document.getElementById("WSubmitCard").style.display = "none";
-	    		document.getElementById("WSubmitBid").style.display = "";
+	    		document.getElementById("SSubmitCard").style.display = "none";
+	    		document.getElementById("SSubmitBid").style.display = "";
+	    		
 	    		
 	    	}
 	        else
 	        {
 	        	
-	    		document.getElementById("WSubmitBid").style.display = "none";
+	    		document.getElementById("SSubmitBid").style.display = "none";
 	        }
 	        
-	    	if(player.gameType=="Game Phase" && player.turn=="West's")
+	    	if(player.gameType=="Game Phase" && player.turn=="South's")
 	    	{
 	    		
-	    		document.getElementById("WSubmitBid").style.display = "none";
-	    		document.getElementById("WSubmitCard").style.display = "";
+	    		document.getElementById("SSubmitBid").style.display = "none";
+	    		document.getElementById("SSubmitCard").style.display = "";
 	    	}
 	    	else
 	    	{
 	    		
-	    		document.getElementById("WSubmitCard").style.display = "none";
+	    		document.getElementById("SSubmitCard").style.display = "none";
 	    	}
-	}
-	if (player.playerName == "North") {
-		
-	   //alert("North Player");
-		northData=player;
-	    document.getElementById("playerName").value = player.playerName;
-	    if(player.hasOwnProperty("SouthBidOrCard"))
-        {
-        	document.getElementById("playedValueS").style.display = "";
-            document.getElementById("playedValueS").value =player.SouthBidOrCard;
-        }
-        if(player.hasOwnProperty("WestBidOrCard"))
-        {
-        	document.getElementById("playedValueW").style.display = "";
-            document.getElementById("playedValueW").value =player.WestBidOrCard;
-        }
-        if(player.hasOwnProperty("EastBidOrCard"))
-        {
-        	document.getElementById("playedValueE").style.display = "";
-            document.getElementById("playedValueE").value =player.EastBidOrCard;
-        }
-        if(player.hasOwnProperty("NorthBidOrCard"))
-        {
-        	document.getElementById("playedValueN").style.display = "";
-            document.getElementById("playedValueN").value =player.NorthBidOrCard;
-        }
-	    var temp="card";
-        var clubs=" ";
-		var diamonds=" ";
-		var hearts=" ";
-		var spades=" ";
-        for(var i=1;i<=13;i++)
-        {
-        	
-        	var card=temp+i;
-        	if(player.hasOwnProperty(card))
-        	{
-        		var cardData=player[card];
-        		//alert(cardData);
-        		var cardDataArray=cardData.split("-");
-        		//alert(cardDataArray[0]);
-        		if(cardDataArray[0]=="C")
-        		{
-        			clubs+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="D")
-        		{
-        			diamonds+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="H")
-        		{
-        			hearts+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="S")
-        		{
-        			spades+=cardDataArray[1]+" ";
-        		}
-        	}
-        	
-        	
-        }
-        
-        document.getElementById("Nclubs").value=clubs;
-        document.getElementById("Ndiamonds").value=diamonds;
-        document.getElementById("Nhearts").value=hearts;
-        document.getElementById("Nspades").value=spades;
-        if(player.turn=="North's")
-        	document.getElementById("Ninput").style.display = "";
-        else
-        	document.getElementById("Ninput").style.display = "none";
-        if(player.gameType=="Bidding Phase" && player.turn=="North's")
-    	{
-        	
-    		document.getElementById("NSubmitCard").style.display = "none";
-    		document.getElementById("NSubmitBid").style.display = "";
-    		
-    	}
-        else
-        {
-        	
-    		document.getElementById("NSubmitBid").style.display = "none";
-        }
-        	
-        
-    	if(player.gameType=="Game Phase" && player.turn=="North's")
-    	{
-    		
-    		document.getElementById("NSubmitBid").style.display = "none";
-    		document.getElementById("NSubmitCard").style.display = "";
-    	}
-    	else
-    	{
-    		
-    		document.getElementById("NSubmitCard").style.display = "none";
-    	}
-	}
-	if (player.playerName == "East") {
-		
-	    //alert("East Player");
-		eastData=player;
-	    document.getElementById("playerName").value = player.playerName;
-	    if(player.hasOwnProperty("SouthBidOrCard"))
-        {
-        	document.getElementById("playedValueS").style.display = "";
-            document.getElementById("playedValueS").value =player.SouthBidOrCard;
-        }
-        if(player.hasOwnProperty("WestBidOrCard"))
-        {
-        	document.getElementById("playedValueW").style.display = "";
-            document.getElementById("playedValueW").value =player.WestBidOrCard;
-        }
-        if(player.hasOwnProperty("EastBidOrCard"))
-        {
-        	document.getElementById("playedValueE").style.display = "";
-            document.getElementById("playedValueE").value =player.EastBidOrCard;
-        }
-        if(player.hasOwnProperty("NorthBidOrCard"))
-        {
-        	document.getElementById("playedValueN").style.display = "";
-            document.getElementById("playedValueN").value =player.NorthBidOrCard;
-        }
-	    var temp="card";
-        var clubs=" ";
-		var diamonds=" ";
-		var hearts=" ";
-		var spades=" ";
-        for(var i=1;i<=13;i++)
-        {
-        	
-        	var card=temp+i;
-        	if(player.hasOwnProperty(card))
-        	{
-        		var cardData=player[card];
-        		//alert(cardData);
-        		var cardDataArray=cardData.split("-");
-        		//alert(cardDataArray[0]);
-        		if(cardDataArray[0]=="C")
-        		{
-        			clubs+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="D")
-        		{
-        			diamonds+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="H")
-        		{
-        			hearts+=cardDataArray[1]+" ";
-        		}
-        		if(cardDataArray[0]=="S")
-        		{
-        			spades+=cardDataArray[1]+" ";
-        		}
-        	}
-        	
-        	
-        }
-        
-        document.getElementById("Eclubs").value=clubs;
-        document.getElementById("Ediamonds").value=diamonds;
-        document.getElementById("Ehearts").value=hearts;
-        document.getElementById("Espades").value=spades;
-        if(player.turn=="East's")
-        	document.getElementById("Einput").style.display = "";
-        else
-        	document.getElementById("Einput").style.display = "none";
-        if(player.gameType=="Bidding Phase" && player.turn=="East's")
-    	{
-        	
-    		document.getElementById("ESubmitCard").style.display = "none";
-    		document.getElementById("ESubmitBid").style.display = "";
-    		
-    	}
-        else
-        {
-        	
-    		document.getElementById("ESubmitBid").style.display = "none";
-        }
-        
-    	if(player.gameType=="Game Phase" && player.turn=="East's")
-    	{
-    		
-    		document.getElementById("ESubmitBid").style.display = "none";
-    		document.getElementById("ESubmitCard").style.display = "";
-    	}
-    	else
-    	{
-    		
-    		document.getElementById("ESubmitCard").style.display = "none";
-    	}
+	    }
+		if (player.playerName == "West") {
+		    	
+		        //alert("West Player");
+				westData=player;
+		        document.getElementById("playerName").value = player.playerName;
+		        if(player.hasOwnProperty("SouthBidOrCard"))
+		        {
+		        	document.getElementById("playedValueS").style.display = "";
+		            document.getElementById("playedValueS").value =player.SouthBidOrCard;
+		        }
+		        if(player.hasOwnProperty("WestBidOrCard"))
+		        {
+		        	document.getElementById("playedValueW").style.display = "";
+		            document.getElementById("playedValueW").value =player.WestBidOrCard;
+		        }
+		        if(player.hasOwnProperty("EastBidOrCard"))
+		        {
+		        	document.getElementById("playedValueE").style.display = "";
+		            document.getElementById("playedValueE").value =player.EastBidOrCard;
+		        }
+		        if(player.hasOwnProperty("NorthBidOrCard"))
+		        {
+		        	document.getElementById("playedValueN").style.display = "";
+		            document.getElementById("playedValueN").value =player.NorthBidOrCard;
+		        }
+		        var temp="card";
+		        var clubs=" ";
+				var diamonds=" ";
+				var hearts=" ";
+				var spades=" ";
+		        for(var i=1;i<=13;i++)
+		        {
+		        	
+		        	var card=temp+i;
+		        	if(player.hasOwnProperty(card))
+		        	{
+		        		var cardData=player[card];
+		        		//alert(cardData);
+		        		var cardDataArray=cardData.split("-");
+		        		//alert(cardDataArray[0]);
+		        		if(cardDataArray[0]=="C")
+		        		{
+		        			clubs+=cardDataArray[1]+" ";
+		        		}
+		        		if(cardDataArray[0]=="D")
+		        		{
+		        			diamonds+=cardDataArray[1]+" ";
+		        		}
+		        		if(cardDataArray[0]=="H")
+		        		{
+		        			hearts+=cardDataArray[1]+" ";
+		        		}
+		        		if(cardDataArray[0]=="S")
+		        		{
+		        			spades+=cardDataArray[1]+" ";
+		        		}
+		        	}
+		        	
+		        	
+		        }
+		        
+		        document.getElementById("Wclubs").value=clubs;
+		        document.getElementById("Wdiamonds").value=diamonds;
+		        document.getElementById("Whearts").value=hearts;
+		        document.getElementById("Wspades").value=spades;
+		        if(player.turn=="West's")
+		        	document.getElementById("Winput").style.display = "";
+		        else
+		        	document.getElementById("Winput").style.display = "none";
+		        if(player.gameType=="Bidding Phase"&& player.turn=="West's")
+		    	{
+		        	
+		    		document.getElementById("WSubmitCard").style.display = "none";
+		    		document.getElementById("WSubmitBid").style.display = "";
+		    		
+		    	}
+		        else
+		        {
+		        	
+		    		document.getElementById("WSubmitBid").style.display = "none";
+		        }
+		        
+		    	if(player.gameType=="Game Phase" && player.turn=="West's")
+		    	{
+		    		
+		    		document.getElementById("WSubmitBid").style.display = "none";
+		    		document.getElementById("WSubmitCard").style.display = "";
+		    	}
+		    	else
+		    	{
+		    		
+		    		document.getElementById("WSubmitCard").style.display = "none";
+		    	}
+		}
+		if (player.playerName == "North") {
+			
+		   //alert("North Player");
+			northData=player;
+		    document.getElementById("playerName").value = player.playerName;
+		    if(player.hasOwnProperty("SouthBidOrCard"))
+	        {
+	        	document.getElementById("playedValueS").style.display = "";
+	            document.getElementById("playedValueS").value =player.SouthBidOrCard;
+	        }
+	        if(player.hasOwnProperty("WestBidOrCard"))
+	        {
+	        	document.getElementById("playedValueW").style.display = "";
+	            document.getElementById("playedValueW").value =player.WestBidOrCard;
+	        }
+	        if(player.hasOwnProperty("EastBidOrCard"))
+	        {
+	        	document.getElementById("playedValueE").style.display = "";
+	            document.getElementById("playedValueE").value =player.EastBidOrCard;
+	        }
+	        if(player.hasOwnProperty("NorthBidOrCard"))
+	        {
+	        	document.getElementById("playedValueN").style.display = "";
+	            document.getElementById("playedValueN").value =player.NorthBidOrCard;
+	        }
+		    var temp="card";
+	        var clubs=" ";
+			var diamonds=" ";
+			var hearts=" ";
+			var spades=" ";
+	        for(var i=1;i<=13;i++)
+	        {
+	        	
+	        	var card=temp+i;
+	        	if(player.hasOwnProperty(card))
+	        	{
+	        		var cardData=player[card];
+	        		//alert(cardData);
+	        		var cardDataArray=cardData.split("-");
+	        		//alert(cardDataArray[0]);
+	        		if(cardDataArray[0]=="C")
+	        		{
+	        			clubs+=cardDataArray[1]+" ";
+	        		}
+	        		if(cardDataArray[0]=="D")
+	        		{
+	        			diamonds+=cardDataArray[1]+" ";
+	        		}
+	        		if(cardDataArray[0]=="H")
+	        		{
+	        			hearts+=cardDataArray[1]+" ";
+	        		}
+	        		if(cardDataArray[0]=="S")
+	        		{
+	        			spades+=cardDataArray[1]+" ";
+	        		}
+	        	}
+	        	
+	        	
+	        }
+	        
+	        document.getElementById("Nclubs").value=clubs;
+	        document.getElementById("Ndiamonds").value=diamonds;
+	        document.getElementById("Nhearts").value=hearts;
+	        document.getElementById("Nspades").value=spades;
+	        if(player.turn=="North's")
+	        	document.getElementById("Ninput").style.display = "";
+	        else
+	        	document.getElementById("Ninput").style.display = "none";
+	        if(player.gameType=="Bidding Phase" && player.turn=="North's")
+	    	{
+	        	
+	    		document.getElementById("NSubmitCard").style.display = "none";
+	    		document.getElementById("NSubmitBid").style.display = "";
+	    		
+	    	}
+	        else
+	        {
+	        	
+	    		document.getElementById("NSubmitBid").style.display = "none";
+	        }
+	        	
+	        
+	    	if(player.gameType=="Game Phase" && player.turn=="North's")
+	    	{
+	    		
+	    		document.getElementById("NSubmitBid").style.display = "none";
+	    		document.getElementById("NSubmitCard").style.display = "";
+	    	}
+	    	else
+	    	{
+	    		
+	    		document.getElementById("NSubmitCard").style.display = "none";
+	    	}
+		}
+		if (player.playerName == "East") {
+			
+		    //alert("East Player");
+			eastData=player;
+		    document.getElementById("playerName").value = player.playerName;
+		    if(player.hasOwnProperty("SouthBidOrCard"))
+	        {
+	        	document.getElementById("playedValueS").style.display = "";
+	            document.getElementById("playedValueS").value =player.SouthBidOrCard;
+	        }
+	        if(player.hasOwnProperty("WestBidOrCard"))
+	        {
+	        	document.getElementById("playedValueW").style.display = "";
+	            document.getElementById("playedValueW").value =player.WestBidOrCard;
+	        }
+	        if(player.hasOwnProperty("EastBidOrCard"))
+	        {
+	        	document.getElementById("playedValueE").style.display = "";
+	            document.getElementById("playedValueE").value =player.EastBidOrCard;
+	        }
+	        if(player.hasOwnProperty("NorthBidOrCard"))
+	        {
+	        	document.getElementById("playedValueN").style.display = "";
+	            document.getElementById("playedValueN").value =player.NorthBidOrCard;
+	        }
+		    var temp="card";
+	        var clubs=" ";
+			var diamonds=" ";
+			var hearts=" ";
+			var spades=" ";
+	        for(var i=1;i<=13;i++)
+	        {
+	        	
+	        	var card=temp+i;
+	        	if(player.hasOwnProperty(card))
+	        	{
+	        		var cardData=player[card];
+	        		//alert(cardData);
+	        		var cardDataArray=cardData.split("-");
+	        		//alert(cardDataArray[0]);
+	        		if(cardDataArray[0]=="C")
+	        		{
+	        			clubs+=cardDataArray[1]+" ";
+	        		}
+	        		if(cardDataArray[0]=="D")
+	        		{
+	        			diamonds+=cardDataArray[1]+" ";
+	        		}
+	        		if(cardDataArray[0]=="H")
+	        		{
+	        			hearts+=cardDataArray[1]+" ";
+	        		}
+	        		if(cardDataArray[0]=="S")
+	        		{
+	        			spades+=cardDataArray[1]+" ";
+	        		}
+	        	}
+	        	
+	        	
+	        }
+	        
+	        document.getElementById("Eclubs").value=clubs;
+	        document.getElementById("Ediamonds").value=diamonds;
+	        document.getElementById("Ehearts").value=hearts;
+	        document.getElementById("Espades").value=spades;
+	        if(player.turn=="East's")
+	        	document.getElementById("Einput").style.display = "";
+	        else
+	        	document.getElementById("Einput").style.display = "none";
+	        if(player.gameType=="Bidding Phase" && player.turn=="East's")
+	    	{
+	        	
+	    		document.getElementById("ESubmitCard").style.display = "none";
+	    		document.getElementById("ESubmitBid").style.display = "";
+	    		
+	    	}
+	        else
+	        {
+	        	
+	    		document.getElementById("ESubmitBid").style.display = "none";
+	        }
+	        
+	    	if(player.gameType=="Game Phase" && player.turn=="East's")
+	    	{
+	    		
+	    		document.getElementById("ESubmitBid").style.display = "none";
+	    		document.getElementById("ESubmitCard").style.display = "";
+	    	}
+	    	else
+	    	{
+	    		
+	    		document.getElementById("ESubmitCard").style.display = "none";
+	    	}
+		}
 	}
 	
 }
@@ -894,6 +899,7 @@ function hideDiv() {
     document.getElementById("tricksWonELabel").style.display = "none";
     document.getElementById("tricksWonWLabel").style.display = "none";
     document.getElementById("gameRules").style.display = "none";
+    document.getElementById("emailform").style.display = "none";
     
     
 }
