@@ -7,6 +7,10 @@ var nbid=null;
 var ebid=null;
 var wbid=null;
 
+setTimeout(killSession, 20000);
+function killSession(){
+	window.location = "killSession.jsp";
+	}
 
 function onMessage(event) {
 	
