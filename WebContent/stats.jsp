@@ -7,9 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Statistics Page</title>
 </head>
 <body>
+
+<h2>Win/Loss stats of all the players in the server</h2>
 <%
 		ArrayList<StatDetails> details =(ArrayList<StatDetails>)request.getSession().getAttribute("statList");
 		
@@ -22,7 +24,7 @@
 			int loss=details.get(i).getLoss();
 			
 		%>	
-<table border="3" cellpadding="5" cellspacing="0" align="center">
+<table border="3" cellpadding="5" cellspacing="0" align="left">
 <tr><td><b>Name</b>:<%= name %></td> </tr>
 <tr><td><b>Email</b>: <%= email %></td></tr>
 <tr><td><b>Wins</b>: <%= wins %></td></tr>
@@ -31,6 +33,7 @@
 			}
 		%>
 </table>
-
+<br>
+<a href="user.jsp">Home</a>
 </body>
 </html>

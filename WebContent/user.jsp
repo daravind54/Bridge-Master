@@ -8,6 +8,7 @@
 <script src="temp.js"></script>
 
 </head>
+<h3>Game Console</h3>
 <body>
 <div id="welcome">
 	<h1>Login successful</h1>

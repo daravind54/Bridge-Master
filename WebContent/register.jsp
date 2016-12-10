@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Player Registration Page</title>
 </head>
 <body>
+<h1>Welcome to Bridge Card Game</h1>
+<h2>Registration Page</h2>
 <form action="register" method="post">
 <table>
 <tr><td>Name:</td>
 	<td><input type="text" id="name" name="name"></td>
+	<td><span class="error">${errors.name}</span></td>
 </tr>
 <tr><td>City:</td>
 	<td><input type="text" id="city" name="city"></td>

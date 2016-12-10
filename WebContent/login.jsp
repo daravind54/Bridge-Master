@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Player Login Page</title>
 </head>
 <body>
+<h2>Welcome to Bridge Card Game</h2>
+<h3>Login Page</h3>
 <form action="login" method="post">
 <table>
 <tr>
