@@ -2,6 +2,8 @@ package com.gmu.edu;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -55,7 +57,7 @@ public class RegistrationServlet extends HttpServlet {
 		registration.setName(request.getParameter("name"));
 		if(registration.getName().startsWith("A"))
 		{
-			
+			errors.put("name", "name not valid");
 		}
 		registration.setCity(request.getParameter("city"));
 		registration.setEmail(request.getParameter("email"));
