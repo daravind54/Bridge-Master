@@ -55,12 +55,12 @@ public class RegistrationServlet extends HttpServlet {
 		Registration registration=new Registration();
 		Map<String, String> errors = new HashMap<String, String>();
 		registration.setName(request.getParameter("name"));
-		if(registration.getName().startsWith("A"))
+		/*if(registration.getName().startsWith("A"))
 		{
 			errors.put("name", "name not valid");
 			request.setAttribute("errors", errors);
 	        request.getRequestDispatcher("register.jsp").forward(request, response);
-		}
+		}*/
 		registration.setCity(request.getParameter("city"));
 		registration.setEmail(request.getParameter("email"));
 		registration.setPassword(request.getParameter("password"));
