@@ -2,7 +2,9 @@ package com.gmu.edu;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ViewStatsDao 
 {
@@ -11,6 +13,7 @@ public class ViewStatsDao
 		Class.forName("oracle.jdbc.driver.OracleDriver"); 
 		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@apollo.vse.gmu.edu:1521:ite10g","adasari2","eecooc");
 		String sql="select name,email,wins,loss from userdetails";
-		
+		Statement statement=con.createStatement();
+		ResultSet resultset=statement.executeQuery(sql);
 	}
 }
