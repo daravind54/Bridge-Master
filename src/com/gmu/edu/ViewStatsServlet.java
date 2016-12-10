@@ -36,7 +36,8 @@ public class ViewStatsServlet extends HttpServlet {
 		doPerform(request, response);
 	}
 	protected void doPerform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		ViewStatsDao viewStatDao=new ViewStatsDao();
+		viewStatDao.getStats();
 	}
 
 }
