@@ -14,7 +14,7 @@ public class ViewStatsDao
 	{
 		Class.forName("oracle.jdbc.driver.OracleDriver"); 
 		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@apollo.vse.gmu.edu:1521:ite10g","adasari2","eecooc");
-		String sql="select name,email,wins,loss from userdetails where email=daravind54@gmail.com";
+		String sql="select name,email,wins,loss from userdetails ";
 		Statement statement=con.createStatement();
 		ResultSet resultset=statement.executeQuery(sql);
 		List<StatDetails> details=new ArrayList<StatDetails>();
