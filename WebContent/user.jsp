@@ -23,9 +23,9 @@
 	</form>
 </div>
 
-<form id="form1">
+<form id="form1" action="viewstats" method="post"> 
 <input type="button"  value="Join Game" onclick=formSubmit()>
-<a href="">View Stats</a><br>
+<input type="submit" id="viewstat" name="viewstat" value="view stats"><br>
 </form>
 <br>
 <div id="waiting">
